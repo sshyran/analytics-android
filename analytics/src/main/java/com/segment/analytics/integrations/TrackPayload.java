@@ -32,6 +32,7 @@ import static com.segment.analytics.internal.Utils.isNullOrEmpty;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.segment.analytics.Properties;
+import com.segment.analytics.integrations.BasePayload.Builder;
 import com.segment.analytics.internal.Private;
 import java.util.Collections;
 import java.util.Date;
@@ -79,6 +80,12 @@ public class TrackPayload extends BasePayload {
   @Override
   public String toString() {
     return "TrackPayload{event=\"" + event() + "\"}";
+  }
+
+  @NonNull
+  @Override
+  public TrackPayload.Builder toBuilder() {
+    return new Builder(this);
   }
 
   /** Fluent API for creating {@link TrackPayload} instances. */

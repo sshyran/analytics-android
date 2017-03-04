@@ -67,6 +67,12 @@ public class IdentifyPayload extends BasePayload {
     return "IdentifyPayload{\"userId=\"" + userId() + "\"}";
   }
 
+  @NonNull
+  @Override
+  public IdentifyPayload.Builder toBuilder() {
+    return new Builder(this);
+  }
+
   /** Fluent API for creating {@link IdentifyPayload} instances. */
   public static class Builder extends BasePayload.Builder<IdentifyPayload, Builder> {
 

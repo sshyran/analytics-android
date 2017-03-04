@@ -32,6 +32,7 @@ import static com.segment.analytics.internal.Utils.isNullOrEmpty;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.segment.analytics.Properties;
+import com.segment.analytics.integrations.BasePayload.Builder;
 import com.segment.analytics.internal.Private;
 import java.util.Collections;
 import java.util.Date;
@@ -95,6 +96,12 @@ public class ScreenPayload extends BasePayload {
   @Override
   public String toString() {
     return "ScreenPayload{name=\"" + name() + ",category=\"" + category() + "\"}";
+  }
+
+  @NonNull
+  @Override
+  public ScreenPayload.Builder toBuilder() {
+    return new Builder(this);
   }
 
   /** Fluent API for creating {@link ScreenPayload} instances. */

@@ -28,6 +28,7 @@ import static com.segment.analytics.internal.Utils.assertNotNullOrEmpty;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import com.segment.analytics.integrations.BasePayload.Builder;
 import com.segment.analytics.internal.Private;
 import java.util.Date;
 import java.util.Map;
@@ -59,6 +60,12 @@ public class AliasPayload extends BasePayload {
   @Override
   public String toString() {
     return "AliasPayload{userId=\"" + userId() + ",previousId=\"" + previousId() + "\"}";
+  }
+
+  @NonNull
+  @Override
+  public AliasPayload.Builder toBuilder() {
+    return new Builder(this);
   }
 
   /** Fluent API for creating {@link AliasPayload} instances. */

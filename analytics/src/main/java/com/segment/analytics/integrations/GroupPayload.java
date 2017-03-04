@@ -77,6 +77,12 @@ public class GroupPayload extends BasePayload {
     return "GroupPayload{groupId=\"" + groupId() + "\"}";
   }
 
+  @NonNull
+  @Override
+  public GroupPayload.Builder toBuilder() {
+    return new Builder(this);
+  }
+
   /** Fluent API for creating {@link GroupPayload} instances. */
   public static class Builder extends BasePayload.Builder<GroupPayload, Builder> {
 

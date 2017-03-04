@@ -33,6 +33,7 @@ import static com.segment.analytics.internal.Utils.isNullOrEmpty;
 import static com.segment.analytics.internal.Utils.transform;
 import static org.assertj.android.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -217,12 +218,14 @@ public class UtilsTest {
   public void assertNotNullOrEmptyMap() {
     try {
       Utils.assertNotNullOrEmpty((Map) null, "foo");
+      fail();
     } catch (NullPointerException e) {
       assertThat(e).hasMessage("foo cannot be null or empty");
     }
 
     try {
       Utils.assertNotNullOrEmpty(ImmutableMap.of(), "bar");
+      fail();
     } catch (NullPointerException e) {
       assertThat(e).hasMessage("bar cannot be null or empty");
     }
@@ -235,12 +238,14 @@ public class UtilsTest {
   public void assertNotNullOrEmptyString() {
     try {
       Utils.assertNotNullOrEmpty((String) null, "foo");
+      fail();
     } catch (NullPointerException e) {
       assertThat(e).hasMessage("foo cannot be null or empty");
     }
 
     try {
       Utils.assertNotNullOrEmpty("", "bar");
+      fail();
     } catch (NullPointerException e) {
       assertThat(e).hasMessage("bar cannot be null or empty");
     }
@@ -252,6 +257,7 @@ public class UtilsTest {
   public void assertNotNull() {
     try {
       Utils.assertNotNull(null, "foo");
+      fail();
     } catch (NullPointerException e) {
       assertThat(e).hasMessage("foo == null");
     }
